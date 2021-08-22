@@ -29,26 +29,26 @@
     % do nothing
     \relax
   \else
-    \ifx \GetChiTitle \undefined
+    \ifx \ThesisTitleChi \undefined
       \hypersetup
       {
-        pdftitle  = {\GetEngTitle},
-        pdfauthor = {\GetAuthorEngName},
+        pdftitle  = {\ThesisTitleEng},
+        pdfauthor = {\AuthorNameEng},
       }
     \else
       \hypersetup
       {
-        pdftitle  = {\GetEngTitle\ (\GetChiTitle)},
-        pdfauthor = {\GetAuthorEngName\ (\GetAuthorChiName)},
+        pdftitle  = {\ThesisTitleEng\ (\ThesisTitleChi)},
+        pdfauthor = {\AuthorNameEng\ (\AuthorNameChi)},
       }
     \fi
 
     \hypersetup
     {
       unicode     = true,
-      pdfcreator  = {\GetUniversityEngName},
-%      pdfproducer = {\GetUniversityEngName},
-      pdfsubject  = {},
+      pdfcreator  = {\UniversityNameEng},
+      pdfproducer = {xelatex},
+      pdfsubject  = {Academic Thesis},
     }
 
     \ifthenelse{\equal{\GetPDFKeywords}{\empty}}{}{%

@@ -31,16 +31,14 @@
     \vspace{0.4cm}
 
     % English title 英文題目
-    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large \GetEngTitle}}
-
+    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large \ThesisTitleEng}}
     \vspace{0.5cm}
 
     \makebox[\textwidth][c]{\Large by}\\
-
     \vspace{0.5cm}
 
     % 顯示學生名字
-    \makebox[\textwidth][c]{\Large \GetAuthorEngName}\\
+    \makebox[\textwidth][c]{\Large \AuthorNameEng}\\
   \end{center}
 \end{minipage}
 
@@ -53,20 +51,16 @@
 % 顯示 校名, 系所名, 論文種類
 \begin{minipage}[c][5cm][t]{\textwidth}
   \begin{center}\Large %
-  \ifthenelse{\equal{\GetEngDegree}{Master}}
-  {%
-    % Master
-    A thesis submitted to the graduate division in partial fulfillment\\
-    of the requirements for the degree of Master of Science in%
-  } % End of if{}
-  {%
-    % Phd
+  \ifdefined\ForPhD
     Submitted in partial fulfillment of the requirements\\%
     for the degree of Doctor of Philosophy in%
-  } % End of else{}
+  \else
+    A thesis submitted to the graduate division in partial fulfillment\\
+    of the requirements for the degree of Master of Science in%
+  \fi
   \GetDeptEngName\\%
   \GetCollEngName\\%
-  \GetUniversityEngName\\%
+  \UniversityNameEng\\%
   Tainan, Taiwan, R.O.C.\\%
   \vspace{0.1cm}
   \GetOralEngDay \thinspace \thinspace \GetThesisMonthInEng \thinspace \thinspace \GetThesisYear%

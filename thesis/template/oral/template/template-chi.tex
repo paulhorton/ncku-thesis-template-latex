@@ -29,11 +29,10 @@
 % 顯示 校名, 論文種類
 \begin{minipage}[c][1.5cm][t]{\textwidth}
   \begin{center}
-    \makebox[\textwidth][c]{\Huge \GetUniversityChiName}\\
-
+    \makebox[\textwidth][c]{\Huge \UniversityNameChi}\\
     \vspace{0.5cm}
 
-    \makebox[\textwidth][c]{\Huge \GetChiDegree 論文}\\
+    \makebox[\textwidth][c]{\Huge \DegreeStringChi 論文}\\
   \end{center}
 \end{minipage}
 
@@ -46,13 +45,13 @@
 % Chinese and English title 中英文題目
 \begin{minipage}[c][2.5cm][t]{\textwidth}
   \begin{center}
-%    \parbox{\paperwidth}{\center \Large \GetChiTitle}
-%    \parbox{\paperwidth}{\center \Large \GetEngTitle}
-    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large \GetChiTitle}}\\
+%    \parbox{\paperwidth}{\center \Large \ThesisTitleChi}
+%    \parbox{\paperwidth}{\center \Large \ThesisTitleEng}
+    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large \ThesisTitleChi}}\\
 
     \vspace{0.5cm}
 
-    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large \GetEngTitle}}\\
+    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large \ThesisTitleEng}}\\
   \end{center}
 \end{minipage}
 
@@ -67,7 +66,7 @@
   \begin{center}
     \hspace{2.4em}
     \makebox[4.8em][r]{\Large 研究生：}
-    \makebox[7.2em][l]{\Large \GetAuthorChiName} \\
+    \makebox[7.2em][l]{\Large \AuthorNameChi} \\
 
     \vspace{0.5cm}
 

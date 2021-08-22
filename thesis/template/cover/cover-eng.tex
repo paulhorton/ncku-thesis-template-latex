@@ -33,13 +33,13 @@
   \centering
 
   \vspace{0.8cm}
-  \makebox[\textwidth][c]{\Huge \GetUniversityEngName} \\
+  \makebox[\textwidth][c]{\Huge \UniversityNameEng} \\
 
   \vspace{0.5cm}
   \parbox{\textwidth}{\centering \LARGE \GetDeptEngName}
     
   \vspace{0.5cm}
-  \makebox[\textwidth][c]{\LARGE \GetEngDegreeThesis} \\
+  \makebox[\textwidth][c]{\LARGE \DegreeStringEng} \\
 
   \ifthenelse{\equal{\GetFlagDisplayDraft}{1}}%
     {\vspace{0.5cm}\makebox[5cm][c]{\LARGE \GetTextDraftEng}}{}
@@ -54,14 +54,11 @@
 % English title 英文題目
 \begin{minipage}[c][5cm][t]{\textwidth}
   \begin{center}
-%    \parbox{\textwidth}{\center \LARGE \GetEngTitle}
-%    \parbox{\textwidth}{\center \Large \GetChiTitle}
-    \makebox[\textwidth][c]{\parbox{\paperwidth }{\center \Large \GetChiTitle}}
+    \makebox[\textwidth][c]{\parbox{\paperwidth }{\center \Large \ThesisTitleChi}}
 
     \vspace{0.5cm}
 
-%    \parbox{\textwidth}{\center \Large \GetEngTitle}
-    \makebox[\textwidth][c]{\parbox{\paperwidth }{\center \Large \GetEngTitle}}
+    \makebox[\textwidth][c]{\parbox{\paperwidth }{\center \Large \ThesisTitleEng}}
   \end{center}
 \end{minipage}
 
@@ -72,138 +69,31 @@
 % ------------------------------------------------
 
 % 顯示學生和老師的名字
+{\Large
+\begin{center}
+{\setlength\tabcolsep{0pt}%
+%
+\begin{tabular}{ Wr{5em} Wl{6em} Wr{5em} wl{7em} }
+學生： &    ~~\AuthorNameChi  &      Student: & ~~\AuthorNameEng\\[3ex]
+指導老師： & ~~\AdvisorNameChiA &     Advisor: & ~~Dr.\ \AdvisorNameEngA\\
+\ifdefined\AdvisorNameChiB%
+共同指導： & ~~\AdvisorNameChiB &  Co-Advisor: & ~~Dr.\ \AdvisorNameEngB\\
+\fi
+\ifdefined\AdvisorNameChiC%
+         & ~~\AdvisorNameChiC &              & ~~Dr.\ \AdvisorNameEngC\\
+\fi
+\end{tabular}
+}
+\end{center}
+}%Large
 
-\begin{minipage}[c][4.5cm][t]{\textwidth}
-  \begin{center}
-    \ifthenelse{\equal{\GetCDBothName}{1}}%
-      {%
-        % ----- 中英文同時顯示 -----
-        % --------------------------
-        % 顯示 學生 的名字
-        \hspace{2.0em}
-        \makebox[4.0em][r]{\Large 學生：}
-        \makebox[6.0em][l]{\Large \GetAuthorChiName}
-        \makebox[8.0em][c]{}
-        \makebox[4.0em][r]{\Large Student：}
-        \makebox[8.0em][l]{\Large \GetAuthorEngName}\\
-        % --------------------------
-        \vspace{0.5cm}
-        % --------------------------
-        % 顯示 指導老師 A 的名字
-        \hspace{2.0em}
-        \makebox[4.0em][r]{\Large 指導老師：}
-        \makebox[6.0em][l]{\Large \GetAdvisorChiNameA \thinspace 博士}
-        \makebox[8.0em][c]{}
-        \makebox[4.0em][r]{\Large Advisor：}
-        \makebox[8.0em][l]{\Large Dr. \thinspace \GetAdvisorEngNameA}\\
-        % --------------------------
-        \vspace{0.1cm}
-        % --------------------------
-        % 顯示 指導老師 B 的名字
-        \hspace{2.0em}
-        \makebox[4.0em][r]
-        {%
-          \ifthenelse{\equal{\GetAdvisorChiNameB}{\empty}}%
-            {}%
-            {\Large 共同指導：}%
-        }
-        \makebox[6.0em][l]%
-        {%
-          \ifthenelse{\equal{\GetAdvisorChiNameB}{\empty}}%
-            {}%
-            {\Large \GetAdvisorChiNameB \thinspace 博士}%
-        }
-        \makebox[8.0em][c]{}
-        \makebox[4.0em][r]
-        {%
-          \ifthenelse{\equal{\GetAdvisorEngNameB}{\empty}}%
-            {}%
-            {\Large Co-Advisor：}%
-        }
-        \makebox[8.0em][l]%
-        {%
-          \ifthenelse{\equal{\GetAdvisorEngNameB}{\empty}}%
-            {}%
-            {\Large Dr. \thinspace \GetAdvisorEngNameB}%
-        } \\
-        % --------------------------
-        \vspace{0.1cm}
-        % --------------------------
-        % 顯示 指導老師 C 的名字
-        \hspace{2.0em}
-        \makebox[4.0em][r]{}
-        \makebox[6.0em][l]
-        {%
-          \ifthenelse{\equal{\GetAdvisorChiNameC}{\empty}}%
-            {}%
-            {\Large \GetAdvisorChiNameC \thinspace 博士}%
-        }
-        \makebox[8.0em][c]{}
-        \makebox[4.0em][r]{}
-        \makebox[8.0em][l]
-        {%
-          \ifthenelse{\equal{\GetAdvisorEngNameC}{\empty}}%
-            {}%
-            {\Large Dr. \thinspace \GetAdvisorEngNameC}%
-        } \\
-        % --------------------------
-      }%
-      {%
-        % ----- 只顯示英文 -----
-        % --------------------------
-        % 顯示 學生 的名字
-        \makebox[7em][r]{\Large Student：}
-        \makebox[10.0em][l]{\Large \GetAuthorEngName}\\
-        % --------------------------
-        \vspace{0.5cm}
-        % --------------------------
-        % 顯示 指導老師 A 的名字
-        \makebox[7em][r]{\Large Advisor：}
-        \makebox[10.0em][l]{\Large Dr. \thinspace \GetAdvisorEngNameA} \\
-        % --------------------------
-        \vspace{0.1cm}
-        % --------------------------
-        % 顯示 指導老師 B 的名字
-        \makebox[7em][r]
-        {%
-          \ifthenelse{\equal{\GetAdvisorEngNameB}{\empty}}%
-            {}%
-            {\Large Co-Advisor：}%
-        }
-        \makebox[10.0em][l]
-        {%
-          \ifthenelse{\equal{\GetAdvisorEngNameB}{\empty}}%
-            {}%
-            {\Large Dr. \thinspace \GetAdvisorEngNameB}%
-        } \\
-        % --------------------------
-        \vspace{0.1cm}
-        % --------------------------
-        % 顯示 指導老師 C 的名字
-        \makebox[7em][r]{}
-        \makebox[10.0em][l]
-        {%
-          \ifthenelse{\equal{\GetAdvisorEngNameC}{\empty}}%
-            {}%
-            {\Large Dr. \thinspace \GetAdvisorEngNameC}%
-        } \\
-        % --------------------------
-      }%
-  \end{center}
-\end{minipage}
-
-% ------------------------------------------------
 
 % Date 日期
-\vspace{0.5cm}
-\begin{minipage}{\textwidth}
-  \begin{center}\Large %
-    \ifthenelse{\equal{\GetFlagDegreeType}{\ValueDegreeMaster}}%
-      {\GetThesisMonthInEng \thinspace \GetThesisYear}%
-      {\GetOralEngDay \thinspace \thinspace \GetThesisMonthInEng \thinspace \thinspace \GetThesisYear}
-  \end{center}
-\end{minipage}
-
+%\vspace{0.5cm}
+\vspace{\fill}
+\begin{center}
+\Large \CoverDate
+\end{center}
 % ------------------------------------------------
 \EndCover
 % ------------------------------------------------

@@ -73,17 +73,10 @@
 \newcommand{\DisableCoverPageStyle}{\restoregeometry}
 
 % ------------------------------------------------
-
-% 設定學校名字
-\SetUniversityName{國立成功大學}{National Cheng Kung University}
-
-% ------------------------------------------------
-
 % 預設前幾頁的頁碼是用羅馬數字
 \pagenumbering{roman}
 
 % ------------------------------------------------
-
 % 設定學校圖案版的浮水印樣子
 \SetWatermaskFigureStyle{%
   \vfill%
@@ -93,13 +86,11 @@
 } % End of \SetWatermaskFigureStyle{}
 
 % 設定學校文字版的浮水印樣子
-% \GetUniversityChiName: 拿學校中文名字
-% \GetUniversityEngName: 拿學校英文名字
 \SetWatermaskTextStyle{%
   \vfill%
   \centering%
   \makebox(0,0){\rotatebox{45}{\textcolor[gray]{0.75}%
-    {\fontsize{2.0cm}{2.0cm}\selectfont{\GetUniversityChiName}}}}%
+    {\fontsize{2.0cm}{2.0cm}\selectfont{\UniversityNameChi}}}}%
   \vfill%
 } % End of \SetWatermaskTextStyle{}
 
@@ -108,7 +99,6 @@
 %\UseWatermarkTextStyle
 
 % ------------------------------------------------
-
 % 因每個學校所要求的內容不一樣, 故overwrite一些內容或APIs.
 
 % 封面日期是統一使用學位考試合格(口試合格單)單為主要參考日期 (年、月(學位考試通過日期)).

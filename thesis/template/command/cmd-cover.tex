@@ -43,58 +43,6 @@
 } % End of \newcommand{}
 % ----------------------------------------------------------------------------
 
-% --- University name 學校名字 ---
-\newcommand\VarUniversityChiName{國立成功大學}           % Default
-\newcommand\VarUniversityEngName{National Cheng Kung University} % Default
-
-\newcommand{\SetUniversityChiName}[1]{%
-  \renewcommand{\VarUniversityChiName}{#1}%
-} % End of \newcommand{}
-
-\newcommand{\SetUniversityEngName}[1]{%
-  \renewcommand{\VarUniversityEngName}{#1}%
-} % End of \newcommand{}
-
-\newcommand{\SetUniversityName}[2]
-{%
-  \SetUniversityChiName{#1}%
-  \SetUniversityEngName{#2}%
-} % End of \newcommand{}
-
-\newcommand{\GetUniversityChiName}{\VarUniversityChiName}
-\newcommand{\GetUniversityEngName}{\VarUniversityEngName}
-% ----------------------------------------------------------------------------
-
-% --- Chinese / English title 中英文論文題目 ---
-\newcommand{\VarThesisChiName}{Chinese Title Here} % Default
-\newcommand{\VarThesisEngName}{English Title Here} % Default
-\newcommand{\SetChiTitle}[1]{\renewcommand{\VarThesisChiName}{#1}}
-\newcommand{\SetEngTitle}[1]{\renewcommand{\VarThesisEngName}{#1}}
-\newcommand{\SetTitle}[2]
-{
-  \SetChiTitle{#1}
-  \SetEngTitle{#2}
-} % End of \newcommand{}
-
-\newcommand{\GetChiTitle}{\VarThesisChiName}
-\newcommand{\GetEngTitle}{\VarThesisEngName}
-
-% ----------------------------------------------------------------------------
-
-% --- User's name 使用者名字 ---
-\newcommand{\VarMyChiName}{你的名字}     % Default
-\newcommand{\VarMyEngName}{Your name}   % Default
-\newcommand{\SetMyChiName}[1]{\renewcommand{\VarMyChiName}{#1}}
-\newcommand{\SetMyEngName}[1]{\renewcommand{\VarMyEngName}{#1}}
-\newcommand{\SetMyName}[2]
-{
-  \SetMyChiName{#1}
-  \SetMyEngName{#2}
-} % End of \newcommand{}
-
-\newcommand{\GetAuthorChiName}{\VarMyChiName}
-\newcommand{\GetAuthorEngName}{\VarMyEngName}
-
 % ----------------------------------------------------------------------------
 
 % --- Degree name 學位 ---
@@ -103,7 +51,15 @@
 
 % 碩士論文  Master's thesis
 % 博士論文  Doctoral dissertation
+\ifdefined\ForPhD%
+\newcommand{\DegreeStringChi}{博士論文}
+\newcommand{\DegreeStringEng}{Doctoral dissertation}
+\else
+\newcommand{\DegreeStringChi}{碩士論文}
+\newcommand{\DegreeStringEng}{Master's thesis}
+\fi
 
+\begin{comment}
 \newcommand{\ValueDegreeMaster}{0}
 \newcommand{\ValueDegreePhd}{1}
 \newcommand{\FlagDegreeType}{\ValueDegreePhd} % Default
@@ -136,6 +92,7 @@
   \SetEngDegree{Master}
   \SetEngDegreeThesis{Master's Thesis}
 } % End of \newcommand{}
+\end{comment}
 
 % ----------------------------------------------------------------------------
 
@@ -249,44 +206,44 @@
 % 中文名字固定以 博士 結尾
 % 英文名字固定以 Dr. 開頭
 
-\newcommand{\VarAdvisorChiNameA}{X}
-\newcommand{\VarAdvisorEngNameA}{X}
-\newcommand{\VarAdvisorChiNameB}{}
-\newcommand{\VarAdvisorEngNameB}{}
-\newcommand{\VarAdvisorChiNameC}{}
-\newcommand{\VarAdvisorEngNameC}{}
+%% \newcommand{\ AdvisorNameChiA}{X}
+%% \newcommand{\ AdvisorNameEngA}{X}
+%% \newcommand{\ AdvisorNameChiB}{}
+%% \newcommand{\ AdvisorNameEngB}{}
+%% \newcommand{\ AdvisorNameChiC}{}
+%% \newcommand{\ AdvisorNameEngC}{}
 
-\newcommand{\GetAdvisorChiNameA}{\VarAdvisorChiNameA}
-\newcommand{\GetAdvisorEngNameA}{\VarAdvisorEngNameA}
-\newcommand{\GetAdvisorChiNameB}{\VarAdvisorChiNameB}
-\newcommand{\GetAdvisorEngNameB}{\VarAdvisorEngNameB}
-\newcommand{\GetAdvisorChiNameC}{\VarAdvisorChiNameC}
-\newcommand{\GetAdvisorEngNameC}{\VarAdvisorEngNameC}
+%% \newcommand{\GetAdvisorChiNameA}{\ AdvisorNameChiA}
+%% \newcommand{\GetAdvisorEngNameA}{\ AdvisorNameEngA}
+%% \newcommand{\GetAdvisorChiNameB}{\ AdvisorNameChiB}
+%% \newcommand{\GetAdvisorEngNameB}{\ AdvisorNameEngB}
+%% \newcommand{\GetAdvisorChiNameC}{\ AdvisorNameChiC}
+%% \newcommand{\GetAdvisorEngNameC}{\ AdvisorNameEngC}
 
-\newcommand{\SetAdvisorChiNameA}[1]{\renewcommand{\VarAdvisorChiNameA}{#1}}
-\newcommand{\SetAdvisorEngNameA}[1]{\renewcommand{\VarAdvisorEngNameA}{#1}}
-\newcommand{\SetAdvisorChiNameB}[1]{\renewcommand{\VarAdvisorChiNameB}{#1}}
-\newcommand{\SetAdvisorEngNameB}[1]{\renewcommand{\VarAdvisorEngNameB}{#1}}
-\newcommand{\SetAdvisorChiNameC}[1]{\renewcommand{\VarAdvisorChiNameC}{#1}}
-\newcommand{\SetAdvisorEngNameC}[1]{\renewcommand{\VarAdvisorEngNameC}{#1}}
+%% \newcommand{\SetAdvisorChiNameA}[1]{\renewcommand{\ AdvisorNameChiA}{#1}}
+%% \newcommand{\SetAdvisorEngNameA}[1]{\renewcommand{\ AdvisorNameEngA}{#1}}
+%% \newcommand{\SetAdvisorChiNameB}[1]{\renewcommand{\ AdvisorNameChiB}{#1}}
+%% \newcommand{\SetAdvisorEngNameB}[1]{\renewcommand{\ AdvisorNameEngB}{#1}}
+%% \newcommand{\SetAdvisorChiNameC}[1]{\renewcommand{\ AdvisorNameChiC}{#1}}
+%% \newcommand{\SetAdvisorEngNameC}[1]{\renewcommand{\ AdvisorNameEngC}{#1}}
 
-\newcommand{\SetAdvisorNameA}[2]
-{
-  \SetAdvisorChiNameA{#1}
-  \SetAdvisorEngNameA{#2}
-} % End of \newcommand{}
+%% \newcommand{\SetAdvisorNameA}[2]
+%% {
+%%   \SetAdvisorChiNameA{#1}
+%%   \SetAdvisorEngNameA{#2}
+%% } % End of \newcommand{}
 
-\newcommand{\SetAdvisorNameB}[2]
-{
-  \SetAdvisorChiNameB{#1}
-  \SetAdvisorEngNameB{#2}
-} % End of \newcommand{}
+%% \newcommand{\SetAdvisorNameB}[2]
+%% {
+%%   \SetAdvisorChiNameB{#1}
+%%   \SetAdvisorEngNameB{#2}
+%% } % End of \newcommand{}
 
-\newcommand{\SetAdvisorNameC}[2]
-{
-  \SetAdvisorChiNameC{#1}
-  \SetAdvisorEngNameC{#2}
-} % End of \newcommand{}
+%% \newcommand{\SetAdvisorNameC}[2]
+%% {
+%%   \SetAdvisorChiNameC{#1}
+%%   \SetAdvisorEngNameC{#2}
+%% } % End of \newcommand{}
 
 % ----------------------------------------------------------------------------
 
