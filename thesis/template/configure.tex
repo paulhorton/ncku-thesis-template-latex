@@ -121,10 +121,7 @@
 % For theorem
 \usepackage{amsthm}
 \usepackage{amssymb}
-%\usepackage{chngcntr}
 
-% For DOI watermark
-\usepackage{draftwatermark}
 
 % ------------------------------------------------
 
@@ -144,18 +141,22 @@
 
 % 論文有關資料
 %%BEG content that was in input from conf/conf.tex
-% This file is need to encoded in utf-8
-%
-% Choose or fill in some needed information for this thesis or dissertation
-% 選擇或填入你的論文一些需要使用的資料
 
-% ----------------------------------------------------------------------------
-
-
+\ifdefined\optDOI
+\usepackage{draftwatermark-2x}%  -2x indicates legacy outdated version.
 % --- DOI 碼 ---
-% 由2018年下學期時, 論文需要插入DOI碼顯示在右下方.
-% DOI碼會在國立成功大學論文上傳系統中, 在上傳時提供.
-\ShowDOI{doi:10.6844/ncku.latex.template.2019.Z00}
+% 由2018年下學期時, 論文需要插入DOI碼顯示在右下方. DOI碼會在國立成功大學論文上傳系統中, 在上傳時提供.
+% 但是2021以後，好像規定又便了。學生不必自己插入DOI碼. PH20210823
+\SetWatermarkText{\textbf{doi:10.6844/ncku.latex.template.2019.Z00}}%% <--- DOI number
+\SetWatermarkColor{black}
+\SetWatermarkFontSize{0.5cm}
+\SetWatermarkScale{0.58}
+\SetWatermarkAngle{0}
+\SetWatermarkLightness{0}
+\SetWatermarkHorCenter{18cm}
+\SetWatermarkVerCenter{28.4cm}
+\fi
+
 
 % ----------------------------------------------------------------------------
 

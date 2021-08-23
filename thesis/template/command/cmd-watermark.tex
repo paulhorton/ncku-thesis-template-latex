@@ -68,17 +68,6 @@
 
 \newcommand{\ClearWatermarkStyle}{\ClearShipoutPicture}
 
-\newcommand{\ShowDOI}[1]{
-  \SetWatermarkText{\textbf{#1}}
-  \SetWatermarkColor{black}
-  \SetWatermarkFontSize{0.5 cm}
-  \SetWatermarkScale{0.58}
-  \SetWatermarkAngle{0}
-  \SetWatermarkLightness{0}
-  \SetWatermarkHorCenter{18 cm}
-  \SetWatermarkVerCenter{28.4 cm}
-} % End of \newcommand{}
-
 % 浮水印: Only add watermark when macro addWatermark is defined.  PH20210806
 \ifdef{\addWatermark}{}{%
 \renewcommand{\UseWatermarkTextStyle}{\relax}%
