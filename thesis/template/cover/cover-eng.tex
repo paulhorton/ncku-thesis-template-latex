@@ -41,8 +41,9 @@
   \vspace{0.5cm}
   \makebox[\textwidth][c]{\LARGE \DegreeStringEng} \\
 
-  \ifthenelse{\equal{\GetFlagDisplayDraft}{1}}%
-    {\vspace{0.5cm}\makebox[5cm][c]{\LARGE \GetTextDraftEng}}{}
+  \ifdefined\optFinal\else
+  \vspace{0.5cm}\makebox[5cm][c]{\LARGE (Draft)}
+  \fi
 \end{minipage}
 
 % ------------------------------------------------

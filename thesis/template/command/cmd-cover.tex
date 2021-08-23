@@ -287,15 +287,3 @@
 
 % A wrapper to handle \CDBothName{}
 \newcommand{\CDBothName}{\DisplayCoverPeoplesBothNames}
-
-% ----------------------------------------------------------------------------
-
-% 顯示 '(初稿)' (中文版) 和 '(Draft)' (英文版) 在封面
-\newcommand{\GetTextDraftChi}{(初稿)}
-\newcommand{\GetTextDraftEng}{(Draft)}
-\newcommand{\VarCoverDisplayDraft}{0} % Don't display in default
-\newcommand{\EnableFlagDisplayDraft}{\renewcommand{\VarCoverDisplayDraft}{1}}
-\newcommand{\DisplayDraft}{\EnableFlagDisplayDraft}
-\newcommand{\GetFlagDisplayDraft}{\VarCoverDisplayDraft}
-
-% ----------------------------------------------------------------------------
