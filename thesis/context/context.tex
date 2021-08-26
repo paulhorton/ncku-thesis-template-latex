@@ -40,8 +40,11 @@
 % 只要是印刷版, 不論是精裝版或平裝版, 都是 封面 (殼/皮) + 內頁.
 % 只有在電子版時, 第一頁就是封面內頁.
 
-\DisplayInnerCover
-
+\ifdefined\optCoverChi
+\input{template/cover/cover-chi}
+\else
+\input{template/cover/cover-chi}
+\fi
 % ------------------------------------------------
 
 % 學位考試論文證明書

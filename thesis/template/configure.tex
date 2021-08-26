@@ -136,18 +136,19 @@
 %%BEG content that was in input from conf/conf.tex
 
 \ifdefined\optDOI
-\usepackage{draftwatermark-2x}%  -2x indicates legacy outdated version.
+\usepackage{draftwatermark}
 % --- DOI 碼 ---
 % 由2018年下學期時, 論文需要插入DOI碼顯示在右下方. DOI碼會在國立成功大學論文上傳系統中, 在上傳時提供.
 % 但是2021以後，好像規定又便了。學生不必自己插入DOI碼. PH20210823
-\SetWatermarkText{\textbf{doi:10.6844/ncku.latex.template.2019.Z00}}%% <--- DOI number
-\SetWatermarkColor{black}
-\SetWatermarkFontSize{0.5cm}
-\SetWatermarkScale{0.58}
-\SetWatermarkAngle{0}
-\SetWatermarkLightness{0}
-\SetWatermarkHorCenter{18cm}
-\SetWatermarkVerCenter{28.4cm}
+\DraftwatermarkOptions{
+text={\textbf{doi:10.6844/ncku.latex.template.2019.Z00}},
+color={[gray]{0}},
+fontsize={0.5cm},
+scale={0.58},
+angle={0},
+hpos={18.0cm}, hanchor=c,
+vpos={28.4cm}, vanchor=m
+}%% <--- DOI number
 \fi
 
 
@@ -173,8 +174,8 @@
 % 不論你是使用\DisplayCoverInChi或\DisplayCoverInEng,
 % 使用\DisplayCoverPeoplesBothNames以設定同時顯示中英文名字.
 
-\DisplayCoverInChi
-\DisplayCoverInEng
+%% \DisplayCoverInChi
+%% \DisplayCoverInEng
 \DisplayCoverPeoplesBothNames
 
 
