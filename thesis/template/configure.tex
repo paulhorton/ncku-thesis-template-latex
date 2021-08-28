@@ -346,7 +346,33 @@ vpos={28.4cm}, vanchor=m
 
 % --------------------------
 % 在 pdf 簡介欄裡填入相關資料
-\FillInPDFData
+\ifdefined\optLinks
+  \ifx \ThesisTitleChi \undefined
+    \hypersetup
+    {
+      pdftitle  = {\ThesisTitleEng},
+      pdfauthor = {\AuthorNameEng},
+    }
+  \else
+    \hypersetup
+    {
+      pdftitle  = {\ThesisTitleEng\ (\ThesisTitleChi)},
+      pdfauthor = {\AuthorNameEng\ (\AuthorNameChi)},
+    }
+  \fi
+
+  \hypersetup
+  {
+    unicode     = true,
+    pdfcreator  = {\UniversityNameEng},
+    pdfproducer = {xelatex},
+    pdfsubject  = {Academic Thesis},
+  }
+
+  \ifthenelse{\equal{\GetPDFKeywords}{\empty}}{}{%
+    \hypersetup{pdfkeywords = {\GetPDFKeywords}}}
+\fi
+
 
 % ------------------------------------------------
 
