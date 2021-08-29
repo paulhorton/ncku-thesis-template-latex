@@ -41,80 +41,6 @@
 
 % -------------------------------------------
 
-% Custom type
-% Font files is needed to be provided
-% Default it is the Type TimesKaiu
-\def \VarFontTypeCustomEngFileNameNormal {times.ttf} % Default
-\def \VarFontTypeCustomEngFileNameItalic {timesi.ttf} % Default
-\def \VarFontTypeCustomEngFileNameBold {timesbd.ttf} % Default
-\def \VarFontTypeCustomEngFileNameBoldItalic {timesbi.ttf} % Default
-\def \VarFontTypeCustomChiFileNameNormal {kaiu.ttf} % Default
-\def \VarFontTypeCustomChiFileNameItalic {} % Default
-\def \VarFontTypeCustomChiFileNameBold {} % Default
-\def \VarFontTypeCustomChiFileNameBoldItalic {} % Default
-
-
-
-\pgfkeys
-{
-  /ParseCustomFontFiles/.is family, /ParseCustomFontFiles,
-  default/.style =
-  {
-    NormalFont = \empty,
-    ItalicFont = \empty,
-    BoldFont = \empty,
-    BoldItalicFont = \empty,
-  },
-  NormalFont/.estore in = \TmpValueNormalFont,
-  ItalicFont/.estore in = \TmpValueItalicFont,
-  BoldFont/.estore in = \TmpValueBoldFont,
-  BoldItalicFont/.estore in = \TmpValueBoldItalicFont,
-} % End of \pgfkeys{}
-
-\newcommand{\SetCustomEngFontFiles}[1][\empty]
-{%
-  \renewcommand\VarFontUseType{\VarFontTypeCustom}
-  %
-  % Parse the input
-  \pgfkeys{/ParseCustomFontFiles, default, #1}%
-  %
-  \ifthenelse{\equal{\TmpValueNormalFont}{\empty}}{}{%
-    \renewcommand{\VarFontTypeCustomEngFileNameNormal}{%
-        \TmpValueNormalFont}}%
-  \ifthenelse{\equal{\TmpValueItalicFont}{\empty}}{}{%
-    \renewcommand{\VarFontTypeCustomEngFileNameItalic}{%
-        \TmpValueItalicFont}}%
-  \ifthenelse{\equal{\TmpValueBoldFont}{\empty}}{}{%
-    \renewcommand{\VarFontTypeCustomEngFileNameBold}{%
-        \TmpValueBoldFont}}%
-  \ifthenelse{\equal{\TmpValueBoldItalicFont}{\empty}}{}{%
-    \renewcommand{\VarFontTypeCustomEngFileNameBoldItalic}{%
-        \TmpValueBoldItalicFont}}%
-} % End of \newcommand{}
-
-\newcommand{\SetCustomChiFontFiles}[1][\empty]
-{%
-  \renewcommand\VarFontUseType{\VarFontTypeCustom}
-  %
-  % Parse the input
-  \pgfkeys{/ParseCustomFontFiles, default, #1}%
-  %
-  \ifthenelse{\equal{\TmpValueNormalFont}{\empty}}{}{%
-    \renewcommand{\VarFontTypeCustomChiFileNameNormal}{%
-        \TmpValueNormalFont}}%
-  \ifthenelse{\equal{\TmpValueItalicFont}{\empty}}{}{%
-    \renewcommand{\VarFontTypeCustomChiFileNameItalic}{%
-        \TmpValueItalicFont}}%
-  \ifthenelse{\equal{\TmpValueBoldFont}{\empty}}{}{%
-    \renewcommand{\VarFontTypeCustomChiFileNameBold}{%
-        \TmpValueBoldFont}}%
-  \ifthenelse{\equal{\TmpValueBoldItalicFont}{\empty}}{}{%
-    \renewcommand{\VarFontTypeCustomChiFileNameBoldItalic}{%
-        \TmpValueBoldItalicFont}}%
-} % End of \newcommand{}
-
-\newcommand{\VarFontTypeCustom}{10}
-
 % -------------------------------------------
 
 \pgfkeys
@@ -223,30 +149,6 @@
 
 % -------------------------------------------
 
-\def \UseFontStyleCustom
-{
-  \fontspec{CustomEngFont}%
-  \CJKfontspec{CustomChiFont}%
-} % End of \newcommand{}
-
-\def \InitFontStyleCustom
-{
-  \SetEngMainFont[%
-    NormalFont = \VarFontTypeCustomEngFileNameNormal,%
-    ItalicFont = \VarFontTypeCustomEngFileNameItalic,%
-    BoldFont = \VarFontTypeCustomEngFileNameBold,%
-    BoldItalicFont = \VarFontTypeCustomEngFileNameBoldItalic,%
-    ]{CustomEngFont}%
-  \SetChiMainFont[%
-    NormalFont = \VarFontTypeCustomChiFileNameNormal,%
-    ItalicFont = \VarFontTypeCustomChiFileNameItalic,%
-    BoldFont = \VarFontTypeCustomChiFileNameBold,%
-    BoldItalicFont = \VarFontTypeCustomChiFileNameBoldItalic,%
-    ]{CustomChiFont}%
-} % End of \newcommand{}
-
-% -------------------------------------------
-
 \newcommand*{\FontTypeToUse}{\VarFontTypeTimesKaiu} % Default
 
 \newcommand{\UseDefaultFontType}
@@ -257,10 +159,6 @@
 %
   \if \FontTypeToUse \VarFontTypeNotoSansCJK%
     \UseFontStyleNotoSansCJK%
-  \fi%
-
-  \if \FontTypeToUse \VarFontTypeCustom%
-    \UseFontStyleCustom%
   \fi%
 } % End of \newcommand{}
 
@@ -274,9 +172,5 @@
 %
   \if \FontTypeToUse \VarFontTypeNotoSansCJK%
     \InitFontStyleNotoSansCJK%
-  \fi%
-
-  \if \FontTypeToUse \VarFontTypeCustom%
-    \InitFontStyleCustom%
   \fi%
 } % End of \newcommand{}
