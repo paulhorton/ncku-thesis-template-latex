@@ -27,15 +27,6 @@
 
 % ----------------------------------------------------------------------------
 
-% Type TimesKaiu
-% Eng: Times New Roman
-% Chi: 標楷體
-\def \VarFontTypeTimesKaiuEngFileNameNormal {times.ttf}
-\def \VarFontTypeTimesKaiuEngFileNameItalic {timesi.ttf}
-\def \VarFontTypeTimesKaiuEngFileNameBold {timesbd.ttf}
-\def \VarFontTypeTimesKaiuEngFileNameBoldItalic {timesbi.ttf}
-\def \VarFontTypeTimesKaiuChiFileNameNormal {kaiu.ttf}
-
 \newcommand{\VarFontTypeTimesKaiu}{0}
 
 % -------------------------------------------
@@ -62,6 +53,8 @@
 \def \VarFontTypeCustomChiFileNameBold {} % Default
 \def \VarFontTypeCustomChiFileNameBoldItalic {} % Default
 
+
+
 \pgfkeys
 {
   /ParseCustomFontFiles/.is family, /ParseCustomFontFiles,
@@ -80,7 +73,7 @@
 
 \newcommand{\SetCustomEngFontFiles}[1][\empty]
 {%
-  \SetFontUseType{\VarFontTypeCustom}
+  \renewcommand\VarFontUseType{\VarFontTypeCustom}
   %
   % Parse the input
   \pgfkeys{/ParseCustomFontFiles, default, #1}%
@@ -101,7 +94,7 @@
 
 \newcommand{\SetCustomChiFontFiles}[1][\empty]
 {%
-  \SetFontUseType{\VarFontTypeCustom}
+  \renewcommand\VarFontUseType{\VarFontTypeCustom}
   %
   % Parse the input
   \pgfkeys{/ParseCustomFontFiles, default, #1}%
@@ -123,16 +116,6 @@
 \newcommand{\VarFontTypeCustom}{10}
 
 % -------------------------------------------
-
-\newcommand{\VarFontUseType}{\VarFontTypeTimesKaiu} % Default
-\newcommand{\GetFontUseType}{\VarFontUseType}
-\newcommand{\SetFontUseType}[1]
-{%
-  \renewcommand{\VarFontUseType}{#1}%
-} % End of \newcommand{}
-
-% -------------------------------------------
-
 
 \pgfkeys
 {
@@ -199,43 +182,31 @@
   %\setCJKmathfont{#2}%
 } % End of \newcommand{}
 
-\newcommand{\SetEngFontFamily}[1]
-{%
-  \fontspec{#1}
-} % End of \newcommand{}
-
-\newcommand{\SetChiFontFamily}[1]
-{%
-  \CJKfontspec{#1}%
-} % End of \newcommand{}
 
 % -------------------------------------------
 
-\def \UseFontStyleTimesKaiu
-{
-  \SetEngFontFamily{TimesKaiuEngFont}%
-  \SetChiFontFamily{TimesKaiuChiFont}%
-} % End of \newcommand{}
+\newcommand*\UseFontStyleTimesKaiu{\fontspec{TimesKaiuEngFont}\CJKfontspec{TimesKaiuChiFont}}
 
 \def \InitFontStyleTimesKaiu
 {
   \SetEngMainFont[%
-    NormalFont = \VarFontTypeTimesKaiuEngFileNameNormal,%
-    ItalicFont = \VarFontTypeTimesKaiuEngFileNameItalic,%
-    BoldFont = \VarFontTypeTimesKaiuEngFileNameBold,%
-    BoldItalicFont = \VarFontTypeTimesKaiuEngFileNameBoldItalic,%
+    NormalFont = times.ttf,%
+    ItalicFont = timesi.ttf,%
+    BoldFont = timesbd.ttf,%
+    BoldItalicFont = timesbi.ttf,%
     ]{TimesKaiuEngFont}%
   \SetChiMainFont[%
-    NormalFont = \VarFontTypeTimesKaiuChiFileNameNormal,%
+    NormalFont = kaiu.ttf,%標楷體
     ]{TimesKaiuChiFont}%
-} % End of \newcommand{}
+}
+
 
 % -------------------------------------------
 
 \def \UseFontStyleNotoSansCJK
 {
-  \SetEngFontFamily{NotoSansCJKEngFont}%
-  \SetChiFontFamily{NotoSansCJKChiFont}%
+  \fontspec{NotoSansCJKEngFont}%
+  \CJKfontspec{NotoSansCJKChiFont}%
 } % End of \newcommand{}
 
 \def \InitFontStyleNotoSansCJK
@@ -254,8 +225,8 @@
 
 \def \UseFontStyleCustom
 {
-  \SetEngFontFamily{CustomEngFont}%
-  \SetChiFontFamily{CustomChiFont}%
+  \fontspec{CustomEngFont}%
+  \CJKfontspec{CustomChiFont}%
 } % End of \newcommand{}
 
 \def \InitFontStyleCustom
@@ -276,32 +247,36 @@
 
 % -------------------------------------------
 
+\newcommand*{\FontTypeToUse}{\VarFontTypeTimesKaiu} % Default
+
 \newcommand{\UseDefaultFontType}
 {%
-  \if \GetFontUseType \VarFontTypeTimesKaiu%
+  \if \FontTypeToUse \VarFontTypeTimesKaiu%
     \UseFontStyleTimesKaiu%
   \fi%
 %
-  \if \GetFontUseType \VarFontTypeNotoSansCJK%
+  \if \FontTypeToUse \VarFontTypeNotoSansCJK%
     \UseFontStyleNotoSansCJK%
   \fi%
 
-  \if \GetFontUseType \VarFontTypeCustom%
+  \if \FontTypeToUse \VarFontTypeCustom%
     \UseFontStyleCustom%
   \fi%
 } % End of \newcommand{}
 
+
+
 \newcommand{\InitDefaultFontType}
 {%
-  \if \GetFontUseType \VarFontTypeTimesKaiu%
+  \if \FontTypeToUse \VarFontTypeTimesKaiu%
     \InitFontStyleTimesKaiu%
   \fi%
 %
-  \if \GetFontUseType \VarFontTypeNotoSansCJK%
+  \if \FontTypeToUse \VarFontTypeNotoSansCJK%
     \InitFontStyleNotoSansCJK%
   \fi%
 
-  \if \GetFontUseType \VarFontTypeCustom%
+  \if \FontTypeToUse \VarFontTypeCustom%
     \InitFontStyleCustom%
   \fi%
 } % End of \newcommand{}
