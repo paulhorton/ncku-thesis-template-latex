@@ -124,9 +124,6 @@
 
 % -------------------------------------------
 
-\def \VarFontDirPath {./template/fonts/} % Fix font path
-\def \GetFontDirPath {\VarFontDirPath}
-
 \newcommand{\VarFontUseType}{\VarFontTypeTimesKaiu} % Default
 \newcommand{\GetFontUseType}{\VarFontUseType}
 \newcommand{\SetFontUseType}[1]
@@ -135,6 +132,7 @@
 } % End of \newcommand{}
 
 % -------------------------------------------
+
 
 \pgfkeys
 {
@@ -152,13 +150,16 @@
   BoldItalicFont/.estore in = \TmpValueBoldItalicFont,
 } % End of \pgfkeys{}
 
+
+\newcommand*\FontDirPath{./template/fonts/} % Fix font path
+
 \newcommand{\SetEngMainFont}[2][\empty]
 {%
   % Parse the input
   \pgfkeys{/ParseFontOption, default, #1}%
   %
   \defaultfontfeatures[#2]{%
-    Path = \GetFontDirPath,
+    Path = \FontDirPath,
     UprightFont = \TmpValueNormalFont
   }%
   %
@@ -175,13 +176,14 @@
   \setmainfont{#2}
 } % End of \newcommand{}
 
+
 \newcommand{\SetChiMainFont}[2][\empty]
 {%
   % Parse the input
   \pgfkeys{/ParseFontOption, default, #1}%
   %
   \setCJKmainfont[%
-    Path = \GetFontDirPath,
+    Path = \FontDirPath,
     UprightFont = \TmpValueNormalFont,
     AutoFakeBold = true,
     AutoFakeSlant = true,
